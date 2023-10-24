@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    h1 Generate Image
+
+    // Form to input image parameters
+    form(action='/generate-img', method='post')
+        div
+            label(for='height') Height:
+            input(type='text', name='height')
+
+        div
+            label(for='width') Width:
+            input(type='text', name='width')
+
+        div
+            label(for='blur') Blur:
+            input(type='text', name='blur')
+
+        div
+            label(for='grayscale') Grayscale:
+            input(type='checkbox', name='grayscale')
+
+        // Submit button
+        button(type='submit') Generate
+
+    // If image URL is available, display generated image
+    if imageUrl
+        img(src=imageUrl, alt='Generated Image')
